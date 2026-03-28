@@ -70,6 +70,14 @@ const NAV_GROUPS: NavGroup[] = [
         label: "Trace Submit Maze",
         href: "/docs/components/trace-submit-maze",
       },
+      {
+        label: "Slow Cancel Toast",
+        href: "/docs/components/slow-cancel-toast",
+      },
+      {
+        label: "Slot Machine Input",
+        href: "/docs/components/slot-machine-input",
+      },
     ],
   },
 ];

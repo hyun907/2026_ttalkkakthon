@@ -16,6 +16,8 @@ import { InfiniteConfirmDialogPage } from "@/pages/docs/components/InfiniteConfi
 import { SwappingConfirmButtonsPage } from "@/pages/docs/components/SwappingConfirmButtonsPage";
 import { MarkSenseGridPage } from "@/pages/docs/components/MarkSenseGridPage";
 import { TraceSubmitMazePage } from "@/pages/docs/components/TraceSubmitMazePage";
+import { SlowCancelToastPage } from "@/pages/docs/components/SlowCancelToastPage";
+import { SlotMachineInputPage } from "@/pages/docs/components/SlotMachineInputPage";
 
 export default function App() {
   return (
@@ -84,6 +86,14 @@ export default function App() {
           <Route
             path="/docs/components/trace-submit-maze"
             element={<TraceSubmitMazePage />}
+          />
+          <Route
+            path="/docs/components/slow-cancel-toast"
+            element={<SlowCancelToastPage />}
+          />
+          <Route
+            path="/docs/components/slot-machine-input"
+            element={<SlotMachineInputPage />}
           />
 
           {/* Future component pages can be added here:

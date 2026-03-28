@@ -18,6 +18,8 @@ import { InfiniteConfirmDialog } from "@/components/hostile-ui/InfiniteConfirmDi
 import { SwappingConfirmButtons } from "@/components/hostile-ui/SwappingConfirmButtons";
 import { MarkSenseGrid } from "@/components/hostile-ui/MarkSenseGrid";
 import { TraceSubmitMaze } from "@/components/hostile-ui/TraceSubmitMaze";
+import { SlowCancelToast } from "@/components/hostile-ui/SlowCancelToast";
+import { SlotMachineInput } from "@/components/hostile-ui/SlotMachineInput";
 
 // ── Component showcase cards ──────────────────────────────────────────────────
 
@@ -113,17 +115,41 @@ const SHOWCASE_COMPONENTS = [
     name: "TraceSubmitMaze",
     status: "stable" as const,
     description:
-      "선에 닿지 않고 커서를 미로처럼 이동시켜야만 중앙 제출 버튼을 누를 수 있습니다.",
+      "섬세함이라곤 1도 없는 당신을 위한 맞춤형 미로입니다. 여기서 막히면 그냥 인터넷 끊고 산으로 가시는 걸 추천합니다.",
     demo: "live",
     href: "/docs/components/trace-submit-maze",
+  },
+  {
+    name: "SlowCancelToast",
+    status: "stable" as const,
+    description:
+      "취소 버튼을 누르면 완료 메시지가 한 글자씩 느리게 조립되어 불필요한 확신 검증을 유도합니다.",
+    demo: "live",
+    href: "/docs/components/slow-cancel-toast",
+  },
+  {
+    name: "SlotMachineInput",
+    status: "stable" as const,
+    description:
+      "나이 입력조차 슬롯머신처럼 처리됩니다. 원하는 숫자가 나오면 STOP을 정확히 눌러야 합니다.",
+    demo: "live",
+    href: "/docs/components/slot-machine-input",
   },
 ];
 
 const STAT_CARDS = [
-  { label: "분노 이탈률", value: "94.2%", note: "전체 컴포넌트 기준" },
-  { label: "오클릭 효율", value: "3.7×", note: "업계 평균 대비" },
-  { label: "사용자 신뢰 침식도", value: "–87 NPS", note: "순고객추천지수" },
-  { label: "폼 완료율", value: "0.03%", note: "집요한 사용자 제외" },
+  { label: "분노 이탈률", value: "99.8%", note: "사용자의 멘탈 붕괴 지수" },
+  { label: "키보드 파손율", value: "12.4×", note: "일반 UI 대비 압도적 수치" },
+  {
+    label: "사용자 저주 빈도",
+    value: "∞ ppm",
+    note: "개발자 조상님 소환 횟수",
+  },
+  {
+    label: "평균 제출 시간",
+    value: "48시간",
+    note: "집념의 광기 어린 사용자 기준",
+  },
 ];
 
 // ── Page ──────────────────────────────────────────────────────────────────────
@@ -432,6 +458,22 @@ function LivePreview({ name }: { name: string }) {
     return (
       <div className="w-full px-1">
         <TraceSubmitMaze compact />
+      </div>
+    );
+  }
+
+  if (name === "SlowCancelToast") {
+    return (
+      <div className="w-full px-1">
+        <SlowCancelToast compact />
+      </div>
+    );
+  }
+
+  if (name === "SlotMachineInput") {
+    return (
+      <div className="w-full px-1">
+        <SlotMachineInput compact />
       </div>
     );
   }
