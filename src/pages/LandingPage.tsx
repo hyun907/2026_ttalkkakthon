@@ -16,6 +16,7 @@ import { AccordionOfChaos } from "@/components/hostile-ui/AccordionOfChaos";
 import { HoverProgressButton } from "@/components/hostile-ui/HoverProgressButton";
 import { InfiniteConfirmDialog } from "@/components/hostile-ui/InfiniteConfirmDialog";
 import { SwappingConfirmButtons } from "@/components/hostile-ui/SwappingConfirmButtons";
+import { MarkSenseGrid } from "@/components/hostile-ui/MarkSenseGrid";
 
 // ── Component showcase cards ──────────────────────────────────────────────────
 
@@ -98,6 +99,14 @@ const SHOWCASE_COMPONENTS = [
       "확인과 취소 버튼의 위치가 매번 뒤바뀌어 자동 반응을 체계적으로 배신합니다.",
     demo: "live",
     href: "/docs/components/swapping-confirm-buttons",
+  },
+  {
+    name: "MarkSenseGrid",
+    status: "stable" as const,
+    description:
+      "숫자 입력을 OMR 마킹 인터페이스로 대체합니다. 타이핑이 너무 관대하다고 생각하는 팀을 위해.",
+    demo: "live",
+    href: "/docs/components/marksense-grid",
   },
 ];
 
@@ -398,6 +407,14 @@ function LivePreview({ name }: { name: string }) {
     return (
       <div className="w-full px-1">
         <SwappingConfirmButtons compact autoSwapMs={1400} />
+      </div>
+    );
+  }
+
+  if (name === "MarkSenseGrid") {
+    return (
+      <div className="w-full px-4 py-2">
+        <MarkSenseGrid length={6} digits={[1, 2, 3, 4, 5]} />
       </div>
     );
   }

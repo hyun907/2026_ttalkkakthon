@@ -14,6 +14,7 @@ import { AccordionOfChaosPage } from "@/pages/docs/components/AccordionOfChaosPa
 import { HoverProgressButtonPage } from "@/pages/docs/components/HoverProgressButtonPage";
 import { InfiniteConfirmDialogPage } from "@/pages/docs/components/InfiniteConfirmDialogPage";
 import { SwappingConfirmButtonsPage } from "@/pages/docs/components/SwappingConfirmButtonsPage";
+import { MarkSenseGridPage } from "@/pages/docs/components/MarkSenseGridPage";
 
 export default function App() {
   return (
@@ -74,6 +75,10 @@ export default function App() {
           <Route
             path="/docs/components/swapping-confirm-buttons"
             element={<SwappingConfirmButtonsPage />}
+          />
+          <Route
+            path="/docs/components/marksense-grid"
+            element={<MarkSenseGridPage />}
           />
 
           {/* Future component pages can be added here:

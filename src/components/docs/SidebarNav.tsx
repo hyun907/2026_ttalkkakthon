@@ -22,7 +22,10 @@ const NAV_GROUPS: NavGroup[] = [
   {
     title: "컴포넌트",
     items: [
-      { label: "Hover Escape Button", href: "/docs/components/hover-escape-button" },
+      {
+        label: "Hover Escape Button",
+        href: "/docs/components/hover-escape-button",
+      },
       {
         label: "Shrink On Approach Button",
         href: "/docs/components/shrink-on-approach-button",
@@ -31,8 +34,14 @@ const NAV_GROUPS: NavGroup[] = [
         label: "Never Complete Progress",
         href: "/docs/components/never-complete-progress",
       },
-      { label: "Reversed Text Input", href: "/docs/components/reversed-text-input" },
-      { label: "Judgmental Name Input", href: "/docs/components/judgmental-name-input" },
+      {
+        label: "Reversed Text Input",
+        href: "/docs/components/reversed-text-input",
+      },
+      {
+        label: "Judgmental Name Input",
+        href: "/docs/components/judgmental-name-input",
+      },
       {
         label: "Inverted Swipe Carousel",
         href: "/docs/components/inverted-swipe-carousel",
@@ -52,6 +61,10 @@ const NAV_GROUPS: NavGroup[] = [
       {
         label: "Swapping Confirm Buttons",
         href: "/docs/components/swapping-confirm-buttons",
+      },
+      {
+        label: "MarkSense Grid",
+        href: "/docs/components/marksense-grid",
       },
     ],
   },
