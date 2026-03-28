@@ -77,3 +77,43 @@
 - 사용자 제어감 지속적으로 박탈
 - 매끄러운 애니메이션으로 짜증 극대화
 - 실제 디자인 시스템처럼 구성된 장난용 컴포넌트 세트
+
+---
+
+## 설치
+
+`badcn/ui`는 npm을 통해 설치할 수 있습니다.
+
+```bash
+npm install badcn-ui
+```
+
+또는
+
+```bash
+yarn add badcn-ui
+```
+
+## 사용 방법
+
+설치 후 원하는 컴포넌트를 불러와 사용할 수 있습니다.
+
+```tsx
+import { HoverEscapeButton } from "badcn-ui";
+
+export default function App() {
+  return <HoverEscapeButton>Click me</HoverEscapeButton>;
+}
+```
+
+버튼은 클릭할 수 있을 것처럼 보이지만, 실제로는 그렇지 않을 수도 있습니다.
+
+
+## npm
+
+👉 [https://www.npmjs.com/package/badcn-ui](https://www.npmjs.com/package/badcn-ui)
+
+패키지는 npm에 배포되어 있으며, 누구나 설치해서 사용할 수 있습니다.
+다만, 사용자의 멘탈은 보장하지 않습니다.
+
+
