@@ -1,0 +1,77 @@
+import { NavLink, useLocation } from "react-router-dom";
+
+interface NavItem {
+  label: string;
+  href: string;
+}
+
+interface NavGroup {
+  title: string;
+  items: NavItem[];
+}
+
+const NAV_GROUPS: NavGroup[] = [
+  {
+    title: "Overview",
+    items: [
+      { label: "Introduction", href: "/docs" },
+      { label: "Getting Started", href: "/docs/getting-started" },
+      { label: "Design Principles", href: "/docs/design-principles" },
+    ],
+  },
+  {
+    title: "Components",
+    items: [
+      { label: "Hover Escape Button", href: "/docs/components/hover-escape-button" },
+      // Future components plug in here:
+      // { label: "Spam Click Button", href: "/docs/components/spam-click-button" },
+      // { label: "Time Picker Phone Input", href: "/docs/components/time-picker-phone-input" },
+      // { label: "Rhythm Select", href: "/docs/components/rhythm-select" },
+    ],
+  },
+];
+
+interface SidebarNavProps {
+  className?: string;
+}
+
+export function SidebarNav({ className = "" }: SidebarNavProps) {
+  const location = useLocation();
+
+  return (
+    <nav className={["flex flex-col gap-6", className].join(" ")}>
+      {NAV_GROUPS.map((group) => (
+        <div key={group.title}>
+          <p className="mb-2 px-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            {group.title}
+          </p>
+          <ul className="flex flex-col gap-0.5">
+            {group.items.map((item) => {
+              const isActive =
+                item.href === "/docs"
+                  ? location.pathname === "/docs"
+                  : location.pathname.startsWith(item.href);
+
+              return (
+                <li key={item.href}>
+                  <NavLink
+                    to={item.href}
+                    end={item.href === "/docs"}
+                    className={[
+                      "flex items-center rounded-md px-3 py-1.5 text-sm transition-colors duration-100",
+                      isActive
+                        ? "bg-accent text-accent-foreground font-medium"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted",
+                    ].join(" ")}
+                  >
+                    {item.label}
+                  </NavLink>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      ))}
+    </nav>
+  );
+}
