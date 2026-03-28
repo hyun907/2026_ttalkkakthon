@@ -21,20 +21,20 @@ export function ReversedTextInputPage() {
       <div className="max-w-2xl">
         <div className="mb-8">
           <div className="flex items-center gap-2 mb-4">
-            <Badge variant="accent">Components</Badge>
+            <Badge variant="accent">컴포넌트</Badge>
             <Badge variant="success">Stable</Badge>
           </div>
           <DocHeading level={1}>ReversedTextInput</DocHeading>
           <DocParagraph className="text-lg text-muted-foreground">
-            A text input that presents every sentence from the wrong chronological direction.
+            모든 문장을 반대 방향에서 표시하는 텍스트 입력 필드입니다.
           </DocParagraph>
         </div>
 
         <DocSection>
-          <DocHeading level={2}>Demo</DocHeading>
+          <DocHeading level={2}>데모</DocHeading>
           <DocParagraph>
-            Type normally. The field renders your text in reverse while storing it in the
-            original order behind the scenes.
+            평소처럼 입력하세요. 필드는 텍스트를 거꾸로 렌더링하면서 내부적으로는
+            원래 순서로 저장합니다.
           </DocParagraph>
           <DemoFrame label="ReversedTextInput.tsx" height="h-56" className="my-5 px-6">
             <div className="w-full max-w-md">
@@ -46,7 +46,7 @@ export function ReversedTextInputPage() {
         <DocDivider />
 
         <DocSection>
-          <DocHeading level={2}>Usage</DocHeading>
+          <DocHeading level={2}>사용법</DocHeading>
           <CodeBlock
             code={`import { ReversedTextInput } from "badcn-ui"
 
@@ -66,20 +66,20 @@ export function Example() {
         </DocSection>
 
         <DocSection>
-          <DocHeading level={2}>Behavior notes</DocHeading>
+          <DocHeading level={2}>동작 설명</DocHeading>
           <DocList
             items={[
-              "Visible text is always reversed, including pasted content.",
-              "The component emits the unreversed string to state so debugging remains slightly confusing instead of impossible.",
-              "Useful for forms that should feel linguistically adversarial rather than structurally broken.",
+              "보이는 텍스트는 붙여넣은 내용 포함 항상 역순으로 표시됩니다.",
+              "컴포넌트는 역순이 아닌 문자열을 state에 전달합니다. 덕분에 디버깅이 완전히 불가능하기보다는 약간 혼란스럽습니다.",
+              "구조적으로 망가진 것이 아니라 언어적으로 적대적인 느낌을 주어야 하는 폼에 유용합니다.",
             ]}
           />
         </DocSection>
 
         <DocSection>
-          <DocHeading level={2}>Accessibility</DocHeading>
+          <DocHeading level={2}>접근성</DocHeading>
           <DocCallout variant="info">
-            Assistive technology receives the rendered field value, which is exactly as backwards as it looks.
+            보조 기술은 렌더링된 필드 값을 받습니다. 보이는 것만큼 정확히 거꾸로입니다.
           </DocCallout>
         </DocSection>
       </div>

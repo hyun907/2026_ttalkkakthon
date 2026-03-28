@@ -17,7 +17,7 @@ export function ReversedTextInput({
   value = "",
   onChange,
   className = "",
-  placeholder = "Everything you type will face the other way.",
+  placeholder = "입력하는 모든 텍스트가 반대 방향을 향합니다.",
   ...props
 }: ReversedTextInputProps) {
   const [internalValue, setInternalValue] = useState(value);
@@ -50,7 +50,7 @@ export function ReversedTextInput({
         {...props}
       />
       <p className="mt-2 text-xs text-muted-foreground font-mono">
-        stored: {internalValue || "''"}
+        저장됨: {internalValue || "''"}
       </p>
     </div>
   );

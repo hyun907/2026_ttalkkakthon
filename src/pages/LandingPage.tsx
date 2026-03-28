@@ -19,7 +19,7 @@ const SHOWCASE_COMPONENTS = [
     name: "HoverEscapeButton",
     status: "stable" as const,
     description:
-      "A primary call-to-action button that relocates itself when the pointer approaches. Ideal for checkout flows.",
+      "마우스가 가까워지면 위치를 바꾸는 CTA 버튼입니다. 결제 플로우에 이상적입니다.",
     demo: "live",
     href: "/docs/components/hover-escape-button",
   },
@@ -27,7 +27,7 @@ const SHOWCASE_COMPONENTS = [
     name: "ShrinkOnApproachButton",
     status: "stable" as const,
     description:
-      "A call-to-action that interprets intent as pressure and reduces its own target area accordingly.",
+      "사용자 의도를 압박으로 해석해 클릭 영역을 스스로 줄이는 CTA 버튼입니다.",
     demo: "live",
     href: "/docs/components/shrink-on-approach-button",
   },
@@ -35,7 +35,7 @@ const SHOWCASE_COMPONENTS = [
     name: "NeverCompleteProgress",
     status: "stable" as const,
     description:
-      "Builds confidence quickly, reaches 99%, and then preserves suspense indefinitely.",
+      "빠르게 신뢰를 쌓고, 99%에 도달한 뒤 영원히 완료를 미룹니다.",
     demo: "live",
     href: "/docs/components/never-complete-progress",
   },
@@ -43,7 +43,7 @@ const SHOWCASE_COMPONENTS = [
     name: "ReversedTextInput",
     status: "stable" as const,
     description:
-      "Displays user input backwards while maintaining the fiction that the field is still helping.",
+      "입력한 텍스트를 거꾸로 표시하면서도 여전히 도움이 되는 척합니다.",
     demo: "live",
     href: "/docs/components/reversed-text-input",
   },
@@ -51,17 +51,17 @@ const SHOWCASE_COMPONENTS = [
     name: "InvertedSwipeCarousel",
     status: "stable" as const,
     description:
-      "A swipe surface that reverses left and right because expectation is merely a suggestion.",
+      "스와이프 방향이 반전된 캐러셀입니다. 기대는 그저 제안일 뿐이니까요.",
     demo: "live",
     href: "/docs/components/inverted-swipe-carousel",
   },
 ];
 
 const STAT_CARDS = [
-  { label: "Rage Quit Rate", value: "94.2%", note: "across all components" },
-  { label: "Misclick Efficiency", value: "3.7×", note: "industry average" },
-  { label: "User Trust Erosion", value: "–87 NPS", note: "net promoter score" },
-  { label: "Form Completion Rate", value: "0.03%", note: "excl. determined users" },
+  { label: "분노 이탈률", value: "94.2%", note: "전체 컴포넌트 기준" },
+  { label: "오클릭 효율", value: "3.7×", note: "업계 평균 대비" },
+  { label: "사용자 신뢰 침식도", value: "–87 NPS", note: "순고객추천지수" },
+  { label: "폼 완료율", value: "0.03%", note: "집요한 사용자 제외" },
 ];
 
 // ── Page ──────────────────────────────────────────────────────────────────────
@@ -73,25 +73,25 @@ export function LandingPage() {
       <Section className="pt-28 pb-24 border-b border-border">
         <Container size="lg">
           <div className="flex flex-col items-start gap-6 max-w-2xl">
-            <Badge variant="accent">April 2026 · v0.1.0</Badge>
+            <Badge variant="accent">2026년 4월 · v0.1.0</Badge>
 
             <h1 className="text-5xl font-bold text-foreground leading-tight tracking-tight">
-              Beautiful components.
+              아름다운 컴포넌트.
               <br />
-              <span className="text-primary">Horrific experiences.</span>
+              <span className="text-primary">끔찍한 경험.</span>
             </h1>
 
             <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-              A meticulously crafted library of anti-user interface components. Open source.
-              Production-ready. Optimized for maximum hesitation and minimum conversion.
+              세심하게 제작된 안티 유저 인터페이스 컴포넌트 라이브러리. 오픈 소스,
+              프로덕션 레디. 최소한의 전환율을 위해 최적화되었습니다.
             </p>
 
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <Button size="lg" asChild>
-                <Link to="/docs">Open Docs</Link>
+                <Link to="/docs">문서 열기</Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link to="/docs/components/hover-escape-button">View Components</Link>
+                <Link to="/docs/components/hover-escape-button">컴포넌트 보기</Link>
               </Button>
             </div>
 
@@ -105,14 +105,13 @@ export function LandingPage() {
         <Container size="xl">
           <div className="mb-12">
             <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-3">
-              Component Library
+              컴포넌트 라이브러리
             </p>
             <h2 className="text-3xl font-bold text-foreground tracking-tight">
-              Familiar patterns. Hostile behavior.
+              익숙한 패턴. 적대적인 동작.
             </h2>
             <p className="mt-3 text-muted-foreground max-w-xl">
-              Every component adheres to established design conventions. The interactions
-              do not.
+              모든 컴포넌트는 확립된 디자인 컨벤션을 따릅니다. 상호작용은 그렇지 않습니다.
             </p>
           </div>
 
@@ -129,25 +128,25 @@ export function LandingPage() {
         <Container size="lg">
           <div className="mb-12">
             <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-3">
-              Design Philosophy
+              디자인 철학
             </p>
             <h2 className="text-3xl font-bold text-foreground tracking-tight">
-              Principled. Thoughtful. Wrong.
+              원칙적. 사려 깊음. 틀림.
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <PhilosophyCard
-              title="Visual trust, interaction betrayal"
-              body="Components earn visual confidence through precise spacing, consistent tokens, and typographic hierarchy. The interactions then squander it systematically."
+              title="시각적 신뢰, 상호작용 배신"
+              body="컴포넌트는 정밀한 간격, 일관된 토큰, 정교한 타이포그래피로 시각적 신뢰를 획득합니다. 상호작용은 그것을 체계적으로 무너뜨립니다."
             />
             <PhilosophyCard
-              title="Consistency in form, chaos in behavior"
-              body="A button looks like a button across every screen. Whether it behaves like one is a separate question, and one we have chosen to answer poorly."
+              title="형식의 일관성, 동작의 혼돈"
+              body="이 라이브러리의 모든 버튼은 같은 모습을 합니다. badcn/ui를 처음 마주한 사용자는 모든 요소를 정확히 인식할 것입니다. 단지 예상대로 작동하지 않을 뿐입니다."
             />
             <PhilosophyCard
-              title="Polished aesthetics, hostile affordances"
-              body="The surface is premium. The UX is a carefully engineered obstacle course. We believe these goals are not contradictory. We are correct."
+              title="세련된 미학, 적대적 어포던스"
+              body="표면은 프리미엄입니다. UX는 정교하게 설계된 장애물 코스입니다. 이 두 목표는 모순되지 않는다고 생각합니다. 맞는 말입니다."
             />
           </div>
         </Container>
@@ -158,13 +157,13 @@ export function LandingPage() {
         <Container size="xl">
           <div className="mb-10">
             <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-3">
-              Performance Metrics
+              성능 지표
             </p>
             <h2 className="text-2xl font-bold text-foreground tracking-tight">
-              Benchmarked against leading UI libraries.
+              업계 최고 UI 라이브러리 대비 벤치마크 결과입니다.
             </h2>
             <p className="mt-2 text-sm text-muted-foreground">
-              We outperform every comparable library on metrics that matter to us.
+              우리가 중요하게 생각하는 지표에서 모든 라이브러리를 압도합니다.
             </p>
           </div>
 
@@ -187,17 +186,17 @@ export function LandingPage() {
         <Container size="md">
           <div className="flex flex-col items-center text-center gap-5">
             <h2 className="text-2xl font-bold text-foreground tracking-tight">
-              Ready to frustrate your users?
+              사용자를 괴롭힐 준비가 됐나요?
             </h2>
             <p className="text-muted-foreground max-w-sm">
-              Reliable visuals. Unreliable interactions. Ship with confidence.
+              믿음직한 비주얼. 믿을 수 없는 상호작용. 자신 있게 배포하세요.
             </p>
             <div className="flex gap-3">
               <Button size="lg" asChild>
-                <Link to="/docs">Get Started</Link>
+                <Link to="/docs">시작하기</Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link to="/docs/components/hover-escape-button">Docs</Link>
+                <Link to="/docs/components/hover-escape-button">문서</Link>
               </Button>
             </div>
           </div>
@@ -225,7 +224,7 @@ function ShowcaseCard({
         ) : (
           <div className="flex flex-col items-center gap-2">
             <div className="w-10 h-5 rounded-sm bg-border animate-pulse" />
-            <p className="text-xs text-muted-foreground">Preview unavailable</p>
+            <p className="text-xs text-muted-foreground">미리보기 준비 중</p>
           </div>
         )}
       </div>
@@ -242,12 +241,12 @@ function ShowcaseCard({
             variant={comp.status === "stable" ? "success" : "outline"}
             className="shrink-0 mt-0.5"
           >
-            {comp.status === "stable" ? "stable" : "soon"}
+            {comp.status === "stable" ? "stable" : "예정"}
           </Badge>
         </div>
         <div className="mt-4">
           <Button size="sm" variant="outline" asChild>
-            <Link to={comp.href}>Open Docs</Link>
+            <Link to={comp.href}>문서 보기</Link>
           </Button>
         </div>
       </CardBody>
@@ -266,12 +265,12 @@ function PhilosophyCard({ title, body }: { title: string; body: string }) {
 }
 
 function LivePreview({ name }: { name: string }) {
-  const [reversedValue, setReversedValue] = useState("backwards only");
+  const [reversedValue, setReversedValue] = useState("거꾸로만 보입니다");
 
   if (name === "HoverEscapeButton") {
     return (
       <div className="relative w-full h-full">
-        <HoverEscapeButton label="Submit" evadeStrength={1.2} />
+        <HoverEscapeButton label="제출하기" evadeStrength={1.2} />
       </div>
     );
   }
@@ -279,7 +278,7 @@ function LivePreview({ name }: { name: string }) {
   if (name === "ShrinkOnApproachButton") {
     return (
       <div className="relative w-full h-full">
-        <ShrinkOnApproachButton label="Continue" shrinkStrength={1.1} />
+        <ShrinkOnApproachButton label="계속하기" shrinkStrength={1.1} />
       </div>
     );
   }
@@ -305,9 +304,9 @@ function LivePreview({ name }: { name: string }) {
       <InvertedSwipeCarousel
         compact
         items={[
-          "Swipe left for previous.",
-          "Swipe right for next.",
-          "Behavior remains inverted.",
+          "왼쪽 스와이프: 이전 슬라이드.",
+          "오른쪽 스와이프: 다음 슬라이드.",
+          "방향은 여전히 반전되어 있습니다.",
         ]}
       />
     </div>

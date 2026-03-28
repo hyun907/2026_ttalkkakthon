@@ -12,15 +12,15 @@ interface NavGroup {
 
 const NAV_GROUPS: NavGroup[] = [
   {
-    title: "Overview",
+    title: "개요",
     items: [
-      { label: "Introduction", href: "/docs" },
-      { label: "Getting Started", href: "/docs/getting-started" },
-      { label: "Design Principles", href: "/docs/design-principles" },
+      { label: "소개", href: "/docs" },
+      { label: "시작하기", href: "/docs/getting-started" },
+      { label: "디자인 원칙", href: "/docs/design-principles" },
     ],
   },
   {
-    title: "Components",
+    title: "컴포넌트",
     items: [
       { label: "Hover Escape Button", href: "/docs/components/hover-escape-button" },
       {

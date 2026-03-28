@@ -6,10 +6,10 @@ interface InvertedSwipeCarouselProps {
 }
 
 const DEFAULT_ITEMS = [
-  "Slide 01. Swipe left to go right.",
-  "Slide 02. The gesture contract has been renegotiated.",
-  "Slide 03. Muscle memory is not supported.",
-  "Slide 04. The carousel remains confident.",
+  "슬라이드 01. 왼쪽으로 스와이프하면 오른쪽으로 이동합니다.",
+  "슬라이드 02. 제스처 계약이 재협상되었습니다.",
+  "슬라이드 03. 근육 기억은 지원되지 않습니다.",
+  "슬라이드 04. 캐러셀은 확신에 차 있습니다.",
 ];
 
 /**
@@ -108,7 +108,7 @@ export function InvertedSwipeCarousel({
                 {item}
               </p>
               <p className="text-xs text-muted-foreground">
-                Swipe right for next. Swipe left for previous.
+                다음: 왼쪽으로 스와이프. 이전: 오른쪽으로 스와이프.
               </p>
             </div>
           ))}
@@ -117,7 +117,7 @@ export function InvertedSwipeCarousel({
 
       <div className="flex items-center justify-between gap-3 mt-3 px-1">
         <p className="text-xs text-muted-foreground">
-          Expected direction is inverted on touch and pointer drag.
+          터치 및 포인터 드래그의 방향이 반전되어 있습니다.
         </p>
         <div className="flex items-center gap-2 shrink-0">
           <button
@@ -125,7 +125,7 @@ export function InvertedSwipeCarousel({
             onClick={goPrevious}
             className="h-7 px-2 rounded-md border border-border bg-background text-xs text-foreground"
           >
-            Prev
+            이전
           </button>
           {items.map((_, dotIndex) => (
             <span
@@ -141,7 +141,7 @@ export function InvertedSwipeCarousel({
             onClick={goNext}
             className="h-7 px-2 rounded-md border border-border bg-background text-xs text-foreground"
           >
-            Next
+            다음
           </button>
         </div>
       </div>

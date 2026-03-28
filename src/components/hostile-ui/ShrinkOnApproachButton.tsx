@@ -18,7 +18,7 @@ interface ShrinkOnApproachButtonProps
  * A button that becomes physically less actionable as the pointer approaches.
  */
 export function ShrinkOnApproachButton({
-  label = "Continue",
+  label = "계속하기",
   shrinkStrength = 1.2,
   disabledShrink = false,
   className = "",
@@ -91,7 +91,7 @@ export function ShrinkOnApproachButton({
         ].join(" ")}
         {...props}
       >
-        {clickCount > 0 ? `Technically clicked. (${clickCount})` : label}
+        {clickCount > 0 ? `성공입니다. (×${clickCount})` : label}
       </button>
     </div>
   );

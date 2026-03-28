@@ -10,9 +10,9 @@ interface NeverCompleteProgressProps {
  * A progress indicator with a durable commitment to 99%.
  */
 export function NeverCompleteProgress({
-  label = "Finalizing",
+  label = "처리 중",
   durationMs = 8000,
-  stalledLabel = "Almost done",
+  stalledLabel = "거의 다 됐어요",
 }: NeverCompleteProgressProps) {
   const [progress, setProgress] = useState(7);
 
@@ -42,7 +42,7 @@ export function NeverCompleteProgress({
         <div>
           <p className="text-sm font-medium text-foreground">{label}</p>
           <p className="text-xs text-muted-foreground">
-            {progress >= 99 ? stalledLabel : "Preparing the last unavailable step"}
+            {progress >= 99 ? stalledLabel : "마지막 단계를 준비하는 중"}
           </p>
         </div>
         <span className="text-sm font-mono text-foreground">{progressLabel}</span>

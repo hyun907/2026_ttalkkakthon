@@ -29,13 +29,13 @@ export function PageShell({ children }: PageShellProps) {
             {/* Nav */}
             <nav className="flex items-center gap-1">
               <NavLink to="/docs" active={isDocsPage}>
-                Docs
+                문서
               </NavLink>
               <NavLink
                 to="/docs/components/hover-escape-button"
                 active={location.pathname.startsWith("/docs/components")}
               >
-                Components
+                컴포넌트
               </NavLink>
               <a
                 href="https://github.com"
@@ -57,10 +57,10 @@ export function PageShell({ children }: PageShellProps) {
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <span className="font-mono">badcn/ui</span>
               <span>·</span>
-              <span>Built for anti-conversion workflows.</span>
+              <span>전환율을 거스르는 워크플로우를 위해 만들어졌습니다.</span>
             </div>
             <p className="text-xs text-muted-foreground">
-              No users were helped in the making of this library.
+              이 라이브러리를 만드는 과정에서 도움받은 사용자는 없습니다.
             </p>
           </div>
         </Container>
