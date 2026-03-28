@@ -170,7 +170,7 @@ export function LandingPage() {
       <Section className="pt-28 pb-24 border-b border-border">
         <Container size="lg">
           <div className="flex flex-col items-start gap-6 max-w-2xl">
-            <Badge variant="accent">2026년 4월 · v0.1.0</Badge>
+            <Badge variant="accent">2026년 4월 · v0.1.3</Badge>
 
             <h1 className="text-5xl font-bold text-foreground leading-tight tracking-tight">
               아름다운 컴포넌트.

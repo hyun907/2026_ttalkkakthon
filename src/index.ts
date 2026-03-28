@@ -13,6 +13,9 @@ export { MarkSenseGrid } from './components/hostile-ui/MarkSenseGrid';
 export type { MarkSenseGridProps } from './components/hostile-ui/MarkSenseGrid';
 
 export { NeverCompleteProgress } from './components/hostile-ui/NeverCompleteProgress';
+export { PatienceCheckbox } from './components/hostile-ui/PatienceCheckbox';
+export { SlotMachineInput } from './components/hostile-ui/SlotMachineInput';
+export { SlowCancelToast } from './components/hostile-ui/SlowCancelToast';
 export { ReversedTextInput } from './components/hostile-ui/ReversedTextInput';
 export { ShrinkOnApproachButton } from './components/hostile-ui/ShrinkOnApproachButton';
 export { SwappingConfirmButtons } from './components/hostile-ui/SwappingConfirmButtons';
