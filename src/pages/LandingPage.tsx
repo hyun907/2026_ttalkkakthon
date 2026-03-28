@@ -13,6 +13,7 @@ import { ReversedTextInput } from "@/components/hostile-ui/ReversedTextInput";
 import { JudgmentalNameInput } from "@/components/hostile-ui/JudgmentalNameInput";
 import { InvertedSwipeCarousel } from "@/components/hostile-ui/InvertedSwipeCarousel";
 import { AccordionOfChaos } from "@/components/hostile-ui/AccordionOfChaos";
+import { HoverProgressButton } from "@/components/hostile-ui/HoverProgressButton";
 
 // ── Component showcase cards ──────────────────────────────────────────────────
 
@@ -71,6 +72,14 @@ const SHOWCASE_COMPONENTS = [
       "열고 싶은 항목은 열립니다. 200ms 후 다른 항목이 닫힙니다. 이유는 설명되지 않습니다.",
     demo: "live",
     href: "/docs/components/accordion-of-chaos",
+  },
+  {
+    name: "HoverProgressButton",
+    status: "stable" as const,
+    description:
+      "클릭하기 전에 의도를 증명해야 합니다. 충분히 오래 호버하세요.",
+    demo: "live",
+    href: "/docs/components/hover-progress-button",
   },
 ];
 
@@ -342,6 +351,19 @@ function LivePreview({ name }: { name: string }) {
             "방향은 여전히 반전되어 있습니다.",
           ]}
         />
+      </div>
+    );
+  }
+
+  if (name === "HoverProgressButton") {
+    return (
+      <div className="flex items-center justify-center gap-8 w-full h-full">
+        <HoverProgressButton variant="fill" holdDuration={1800}>
+          제출하기
+        </HoverProgressButton>
+        <HoverProgressButton variant="circle" holdDuration={1800}>
+          확인
+        </HoverProgressButton>
       </div>
     );
   }

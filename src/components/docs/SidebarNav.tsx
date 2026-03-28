@@ -41,6 +41,10 @@ const NAV_GROUPS: NavGroup[] = [
         label: "Accordion of Chaos",
         href: "/docs/components/accordion-of-chaos",
       },
+      {
+        label: "Hover Progress Button",
+        href: "/docs/components/hover-progress-button",
+      },
     ],
   },
 ];

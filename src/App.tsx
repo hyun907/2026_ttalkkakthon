@@ -11,6 +11,7 @@ import { ReversedTextInputPage } from "@/pages/docs/components/ReversedTextInput
 import { InvertedSwipeCarouselPage } from "@/pages/docs/components/InvertedSwipeCarouselPage";
 import { JudgmentalNameInputPage } from "@/pages/docs/components/JudgmentalNameInputPage";
 import { AccordionOfChaosPage } from "@/pages/docs/components/AccordionOfChaosPage";
+import { HoverProgressButtonPage } from "@/pages/docs/components/HoverProgressButtonPage";
 
 export default function App() {
   return (
@@ -59,6 +60,10 @@ export default function App() {
           <Route
             path="/docs/components/accordion-of-chaos"
             element={<AccordionOfChaosPage />}
+          />
+          <Route
+            path="/docs/components/hover-progress-button"
+            element={<HoverProgressButtonPage />}
           />
 
           {/* Future component pages can be added here:
