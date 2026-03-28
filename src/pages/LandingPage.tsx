@@ -20,6 +20,7 @@ import { MarkSenseGrid } from "@/components/hostile-ui/MarkSenseGrid";
 import { TraceSubmitMaze } from "@/components/hostile-ui/TraceSubmitMaze";
 import { SlowCancelToast } from "@/components/hostile-ui/SlowCancelToast";
 import { SlotMachineInput } from "@/components/hostile-ui/SlotMachineInput";
+import { PatienceCheckbox } from "@/components/hostile-ui/PatienceCheckbox";
 
 // ── Component showcase cards ──────────────────────────────────────────────────
 
@@ -134,6 +135,14 @@ const SHOWCASE_COMPONENTS = [
       "나이 입력조차 슬롯머신처럼 처리됩니다. 원하는 숫자가 나오면 STOP을 정확히 눌러야 합니다.",
     demo: "live",
     href: "/docs/components/slot-machine-input",
+  },
+  {
+    name: "PatienceCheckbox",
+    status: "stable" as const,
+    description:
+      "가벼운 클릭은 동의로 간주하지 않습니다. 3초간 꾹 눌러 당신의 진정성을 증명하세요.",
+    demo: "live",
+    href: "/docs/components/patience-checkbox",
   },
 ];
 
@@ -474,6 +483,14 @@ function LivePreview({ name }: { name: string }) {
     return (
       <div className="w-full px-1">
         <SlotMachineInput compact />
+      </div>
+    );
+  }
+
+  if (name === "PatienceCheckbox") {
+    return (
+      <div className="w-full px-1">
+        <PatienceCheckbox compact />
       </div>
     );
   }

@@ -18,6 +18,7 @@ import { MarkSenseGridPage } from "@/pages/docs/components/MarkSenseGridPage";
 import { TraceSubmitMazePage } from "@/pages/docs/components/TraceSubmitMazePage";
 import { SlowCancelToastPage } from "@/pages/docs/components/SlowCancelToastPage";
 import { SlotMachineInputPage } from "@/pages/docs/components/SlotMachineInputPage";
+import { PatienceCheckboxPage } from "@/pages/docs/components/PatienceCheckboxPage";
 
 export default function App() {
   return (
@@ -94,6 +95,10 @@ export default function App() {
           <Route
             path="/docs/components/slot-machine-input"
             element={<SlotMachineInputPage />}
+          />
+          <Route
+            path="/docs/components/patience-checkbox"
+            element={<PatienceCheckboxPage />}
           />
 
           {/* Future component pages can be added here:

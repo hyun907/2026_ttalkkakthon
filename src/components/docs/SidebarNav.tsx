@@ -78,6 +78,10 @@ const NAV_GROUPS: NavGroup[] = [
         label: "Slot Machine Input",
         href: "/docs/components/slot-machine-input",
       },
+      {
+        label: "Patience Checkbox",
+        href: "/docs/components/patience-checkbox",
+      },
     ],
   },
 ];
