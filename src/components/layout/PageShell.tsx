@@ -38,7 +38,7 @@ export function PageShell({ children }: PageShellProps) {
                 컴포넌트
               </NavLink>
               <a
-                href="https://github.com"
+                href="https://github.com/hyun907/2026_ttalkkakthon"
                 className="ml-2 flex items-center justify-center w-8 h-8 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
                 aria-label="GitHub"
               >
