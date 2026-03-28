@@ -34,8 +34,7 @@ const SHOWCASE_COMPONENTS = [
   {
     name: "NeverCompleteProgress",
     status: "stable" as const,
-    description:
-      "빠르게 신뢰를 쌓고, 99%에 도달한 뒤 영원히 완료를 미룹니다.",
+    description: "빠르게 신뢰를 쌓고, 99%에 도달한 뒤 영원히 완료를 미룹니다.",
     demo: "live",
     href: "/docs/components/never-complete-progress",
   },
@@ -82,8 +81,8 @@ export function LandingPage() {
             </h1>
 
             <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-              세심하게 제작된 안티 유저 인터페이스 컴포넌트 라이브러리. 오픈 소스,
-              프로덕션 레디. 최소한의 전환율을 위해 최적화되었습니다.
+              세심하게 제작된 안티 유저 인터페이스 컴포넌트 라이브러리. 오픈
+              소스, 프로덕션 레디. 최소한의 전환율을 위해 최적화되었습니다.
             </p>
 
             <div className="flex flex-wrap items-center gap-3 pt-2">
@@ -91,7 +90,9 @@ export function LandingPage() {
                 <Link to="/docs">문서 열기</Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link to="/docs/components/hover-escape-button">컴포넌트 보기</Link>
+                <Link to="/docs/components/hover-escape-button">
+                  컴포넌트 보기
+                </Link>
               </Button>
             </div>
 
@@ -111,7 +112,8 @@ export function LandingPage() {
               익숙한 패턴. 적대적인 동작.
             </h2>
             <p className="mt-3 text-muted-foreground max-w-xl">
-              모든 컴포넌트는 확립된 디자인 컨벤션을 따릅니다. 상호작용은 그렇지 않습니다.
+              모든 컴포넌트는 확립된 디자인 컨벤션을 따릅니다. 상호작용은 그렇지
+              않습니다.
             </p>
           </div>
 
@@ -145,8 +147,8 @@ export function LandingPage() {
               body="이 라이브러리의 모든 버튼은 같은 모습을 합니다. badcn/ui를 처음 마주한 사용자는 모든 요소를 정확히 인식할 것입니다. 단지 예상대로 작동하지 않을 뿐입니다."
             />
             <PhilosophyCard
-              title="세련된 미학, 적대적 어포던스"
-              body="표면은 프리미엄입니다. UX는 정교하게 설계된 장애물 코스입니다. 이 두 목표는 모순되지 않는다고 생각합니다. 맞는 말입니다."
+              title="세련된 미학, 의도적으로 불편한 디자인"
+              body="디자인은 보통 형태만 봐도 어떻게 써야 할지 알 수 있게 만듭니다. 하지만 badcn/ui의 컴포넌트는 클릭, 선택, 제출을 유도하면서도 그 어떤 동작도 쉽게 이루어지지 않도록 일부러 방해합니다."
             />
           </div>
         </Container>
@@ -189,7 +191,11 @@ export function LandingPage() {
               사용자를 괴롭힐 준비가 됐나요?
             </h2>
             <p className="text-muted-foreground max-w-sm">
-              믿음직한 비주얼. 믿을 수 없는 상호작용. 자신 있게 배포하세요.
+              믿음직한 비주얼.
+              <br />
+              믿을 수 없는 상호작용.
+              <br />
+              자신 있게 배포하세요.
             </p>
             <div className="flex gap-3">
               <Button size="lg" asChild>
@@ -208,11 +214,7 @@ export function LandingPage() {
 
 // ── Sub-components ────────────────────────────────────────────────────────────
 
-function ShowcaseCard({
-  comp,
-}: {
-  comp: (typeof SHOWCASE_COMPONENTS)[0];
-}) {
+function ShowcaseCard({ comp }: { comp: (typeof SHOWCASE_COMPONENTS)[0] }) {
   const isLive = comp.demo === "live";
 
   return (
@@ -232,7 +234,9 @@ function ShowcaseCard({
       <CardBody>
         <div className="flex items-start justify-between gap-3">
           <div>
-            <p className="text-sm font-semibold font-mono text-foreground">{comp.name}</p>
+            <p className="text-sm font-semibold font-mono text-foreground">
+              {comp.name}
+            </p>
             <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
               {comp.description}
             </p>
@@ -258,7 +262,9 @@ function PhilosophyCard({ title, body }: { title: string; body: string }) {
   return (
     <div className="flex flex-col gap-3">
       <div className="w-8 h-px bg-primary" />
-      <h3 className="text-base font-semibold text-foreground leading-snug">{title}</h3>
+      <h3 className="text-base font-semibold text-foreground leading-snug">
+        {title}
+      </h3>
       <p className="text-sm text-muted-foreground leading-relaxed">{body}</p>
     </div>
   );

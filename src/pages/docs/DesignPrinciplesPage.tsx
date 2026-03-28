@@ -1,6 +1,11 @@
 import { DocsLayout } from "@/components/docs/DocsLayout";
 import { Badge } from "@/components/ui/Badge";
-import { DocSection, DocHeading, DocParagraph, DocDivider } from "./shared/DocElements";
+import {
+  DocSection,
+  DocHeading,
+  DocParagraph,
+  DocDivider,
+} from "./shared/DocElements";
 
 const PRINCIPLES = [
   {
@@ -20,10 +25,8 @@ const PRINCIPLES = [
   },
   {
     number: "03",
-    title: "세련된 미학, 적대적 어포던스",
-    body: `어포던스는 사물의 외형과 기능 사이의 관계입니다. 문 손잡이는 당기는 것을
-    유도합니다. 밀기 판은 미는 것을 유도합니다. badcn/ui 컴포넌트는 클릭, 선택,
-    제출을 유도합니다. 그 어느 것도 우아하게 허용하지 않습니다.`,
+    title: "세련된 미학, 의도적으로 불편한 디자인",
+    body: `디자인은 더 편한 것을 추구하죠. 예를 들어, 문 손잡이는 당기는 것을 유도합니다. badcn/ui 컴포넌트는 클릭, 선택, 제출을 유도합니다. 하지만 그 어느 것도 우아하게 허용하지 않습니다.`,
   },
   {
     number: "04",
@@ -46,7 +49,9 @@ export function DesignPrinciplesPage() {
     <DocsLayout>
       <div className="max-w-2xl">
         <div className="mb-8">
-          <Badge variant="accent" className="mb-4">개요</Badge>
+          <Badge variant="accent" className="mb-4">
+            개요
+          </Badge>
           <DocHeading level={1}>디자인 원칙</DocHeading>
           <DocParagraph className="text-lg text-muted-foreground">
             모든 컴포넌트 결정의 배경이 되는 철학입니다. 주의 깊게 읽어주세요.
@@ -74,8 +79,8 @@ export function DesignPrinciplesPage() {
         <DocSection>
           <DocDivider />
           <DocParagraph className="text-muted-foreground italic text-sm">
-            이 원칙들은 몇 시간의 신중한 사고 끝에 개발되어 단 하나의 버튼에 적용되었습니다.
-            나머지 라이브러리는 적절한 시기에 따라올 것입니다.
+            이 원칙들은 몇 시간의 신중한 사고 끝에 개발되어 단 하나의 버튼에
+            적용되었습니다. 나머지 라이브러리는 적절한 시기에 따라올 것입니다.
           </DocParagraph>
         </DocSection>
       </div>
