@@ -1,6 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
 import { Container } from "./Container";
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
+
+type Theme = "light" | "dark";
+
+const THEME_STORAGE_KEY = "badcn-ui-theme";
 
 interface PageShellProps {
   children: ReactNode;
@@ -9,6 +13,34 @@ interface PageShellProps {
 export function PageShell({ children }: PageShellProps) {
   const location = useLocation();
   const isDocsPage = location.pathname.startsWith("/docs");
+  const [theme, setTheme] = useState<Theme>(() => getInitialTheme());
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    window.localStorage.setItem(THEME_STORAGE_KEY, theme);
+  }, [theme]);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+    const syncSystemTheme = (event: MediaQueryListEvent) => {
+      const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
+
+      if (!storedTheme) {
+        setTheme(event.matches ? "dark" : "light");
+      }
+    };
+
+    mediaQuery.addEventListener("change", syncSystemTheme);
+
+    return () => {
+      mediaQuery.removeEventListener("change", syncSystemTheme);
+    };
+  }, []);
+
+  const toggleTheme = () => {
+    setTheme((currentTheme) => (currentTheme === "dark" ? "light" : "dark"));
+  };
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -37,6 +69,18 @@ export function PageShell({ children }: PageShellProps) {
               >
                 컴포넌트
               </NavLink>
+              <button
+                type="button"
+                onClick={toggleTheme}
+                className="ml-2 inline-flex h-8 items-center gap-2 rounded-md border border-border bg-card px-2.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                aria-label={theme === "dark" ? "라이트 모드로 전환" : "다크 모드로 전환"}
+                aria-pressed={theme === "dark"}
+              >
+                <ThemeIcon theme={theme} />
+                <span className="hidden sm:inline">
+                  {theme === "dark" ? "라이트" : "다크"}
+                </span>
+              </button>
               <a
                 href="https://github.com/hyun907/2026_ttalkkakthon"
                 className="ml-2 flex items-center justify-center w-8 h-8 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
@@ -69,6 +113,22 @@ export function PageShell({ children }: PageShellProps) {
   );
 }
 
+function getInitialTheme(): Theme {
+  if (typeof window === "undefined") {
+    return "light";
+  }
+
+  const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
+
+  if (storedTheme === "light" || storedTheme === "dark") {
+    return storedTheme;
+  }
+
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+}
+
 function NavLink({
   to,
   active,
@@ -90,6 +150,22 @@ function NavLink({
     >
       {children}
     </Link>
+  );
+}
+
+function ThemeIcon({ theme }: { theme: Theme }) {
+  if (theme === "dark") {
+    return (
+      <svg viewBox="0 0 16 16" className="h-4 w-4 fill-current">
+        <path d="M9.6 1.1a.75.75 0 00-.9.9A5.75 5.75 0 011.95 8.75 5.75 5.75 0 009.25 14.8a5.75 5.75 0 006.42-7.56.75.75 0 00-1.12-.41 4.25 4.25 0 01-6.19-4.57.75.75 0 00-.76-1.16z" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 16 16" className="h-4 w-4 fill-current">
+      <path d="M8 3.25a.75.75 0 01.75.75v.5a.75.75 0 01-1.5 0V4A.75.75 0 018 3.25zm0 7.25a.75.75 0 01.75.75v.5a.75.75 0 01-1.5 0v-.5A.75.75 0 018 10.5zm4-2.5a.75.75 0 01.75.75.75.75 0 01-.75.75h-.5a.75.75 0 010-1.5H12zm-7.5 0a.75.75 0 010 1.5H4a.75.75 0 010-1.5h.5zM10.83 5.17a.75.75 0 011.06 0l.35.35a.75.75 0 01-1.06 1.06l-.35-.35a.75.75 0 010-1.06zM4.76 11.24a.75.75 0 011.06 0l.35.35a.75.75 0 11-1.06 1.06l-.35-.35a.75.75 0 010-1.06zm0-6.07a.75.75 0 010 1.06l-.35.35a.75.75 0 11-1.06-1.06l.35-.35a.75.75 0 011.06 0zm6.07 6.07a.75.75 0 010 1.06l-.35.35a.75.75 0 01-1.06-1.06l.35-.35a.75.75 0 011.06 0zM8 5.5A2.5 2.5 0 108 10.5 2.5 2.5 0 008 5.5z" />
+    </svg>
   );
 }
 
