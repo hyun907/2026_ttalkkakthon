@@ -12,6 +12,7 @@ import { NeverCompleteProgress } from "@/components/hostile-ui/NeverCompleteProg
 import { ReversedTextInput } from "@/components/hostile-ui/ReversedTextInput";
 import { JudgmentalNameInput } from "@/components/hostile-ui/JudgmentalNameInput";
 import { InvertedSwipeCarousel } from "@/components/hostile-ui/InvertedSwipeCarousel";
+import { AccordionOfChaos } from "@/components/hostile-ui/AccordionOfChaos";
 
 // ── Component showcase cards ──────────────────────────────────────────────────
 
@@ -62,6 +63,14 @@ const SHOWCASE_COMPONENTS = [
       "스와이프 방향이 반전된 캐러셀입니다. 기대는 그저 제안일 뿐이니까요.",
     demo: "live",
     href: "/docs/components/inverted-swipe-carousel",
+  },
+  {
+    name: "AccordionOfChaos",
+    status: "stable" as const,
+    description:
+      "열고 싶은 항목은 열립니다. 200ms 후 다른 항목이 닫힙니다. 이유는 설명되지 않습니다.",
+    demo: "live",
+    href: "/docs/components/accordion-of-chaos",
   },
 ];
 
@@ -228,7 +237,6 @@ function ShowcaseCard({ comp }: { comp: (typeof SHOWCASE_COMPONENTS)[0] }) {
 
   return (
     <Card className="overflow-hidden group">
-      {/* Demo area */}
       <div className="relative h-52 bg-surface border-b border-border flex items-center justify-center overflow-hidden p-4">
         {isLive ? (
           <LivePreview name={comp.name} />
@@ -323,14 +331,29 @@ function LivePreview({ name }: { name: string }) {
     );
   }
 
+  if (name === "InvertedSwipeCarousel") {
+    return (
+      <div className="w-full">
+        <InvertedSwipeCarousel
+          compact
+          items={[
+            "왼쪽 스와이프: 이전 슬라이드.",
+            "오른쪽 스와이프: 다음 슬라이드.",
+            "방향은 여전히 반전되어 있습니다.",
+          ]}
+        />
+      </div>
+    );
+  }
+
   return (
-    <div className="w-full">
-      <InvertedSwipeCarousel
-        compact
+    <div className="w-full px-4 py-1">
+      <AccordionOfChaos
+        chaosLevel={1}
         items={[
-          "왼쪽 스와이프: 이전 슬라이드.",
-          "오른쪽 스와이프: 다음 슬라이드.",
-          "방향은 여전히 반전되어 있습니다.",
+          { id: "a", title: "열어보세요", content: "곧 닫힐 것입니다." },
+          { id: "b", title: "아니면 이걸", content: "이것도 마찬가지입니다." },
+          { id: "c", title: "아무거나", content: "결과는 동일합니다." },
         ]}
       />
     </div>

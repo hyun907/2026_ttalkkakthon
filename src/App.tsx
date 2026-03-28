@@ -10,6 +10,7 @@ import { NeverCompleteProgressPage } from "@/pages/docs/components/NeverComplete
 import { ReversedTextInputPage } from "@/pages/docs/components/ReversedTextInputPage";
 import { InvertedSwipeCarouselPage } from "@/pages/docs/components/InvertedSwipeCarouselPage";
 import { JudgmentalNameInputPage } from "@/pages/docs/components/JudgmentalNameInputPage";
+import { AccordionOfChaosPage } from "@/pages/docs/components/AccordionOfChaosPage";
 
 export default function App() {
   return (
@@ -21,8 +22,14 @@ export default function App() {
 
           {/* Docs */}
           <Route path="/docs" element={<IntroductionPage />} />
-          <Route path="/docs/getting-started" element={<GettingStartedPage />} />
-          <Route path="/docs/design-principles" element={<DesignPrinciplesPage />} />
+          <Route
+            path="/docs/getting-started"
+            element={<GettingStartedPage />}
+          />
+          <Route
+            path="/docs/design-principles"
+            element={<DesignPrinciplesPage />}
+          />
 
           {/* Component docs */}
           <Route
@@ -48,6 +55,10 @@ export default function App() {
           <Route
             path="/docs/components/inverted-swipe-carousel"
             element={<InvertedSwipeCarouselPage />}
+          />
+          <Route
+            path="/docs/components/accordion-of-chaos"
+            element={<AccordionOfChaosPage />}
           />
 
           {/* Future component pages can be added here:

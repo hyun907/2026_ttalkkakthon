@@ -37,6 +37,10 @@ const NAV_GROUPS: NavGroup[] = [
         label: "Inverted Swipe Carousel",
         href: "/docs/components/inverted-swipe-carousel",
       },
+      {
+        label: "Accordion of Chaos",
+        href: "/docs/components/accordion-of-chaos",
+      },
     ],
   },
 ];
