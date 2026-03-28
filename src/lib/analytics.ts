@@ -15,28 +15,6 @@ export function initAnalytics() {
   }
 
   window.dataLayer = window.dataLayer || [];
-  window.gtag =
-    window.gtag ||
-    function gtag(...args: unknown[]) {
-      window.dataLayer.push(args);
-    };
-
-  const existingScript = document.querySelector<HTMLScriptElement>(
-    `script[data-ga-id="${measurementId}"]`
-  );
-
-  if (!existingScript) {
-    const script = document.createElement("script");
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
-    script.dataset.gaId = measurementId;
-    document.head.appendChild(script);
-  }
-
-  window.gtag("js", new Date());
-  window.gtag("config", measurementId, {
-    send_page_view: false,
-  });
 
   isInitialized = true;
 }
