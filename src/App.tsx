@@ -5,6 +5,10 @@ import { IntroductionPage } from "@/pages/docs/IntroductionPage";
 import { GettingStartedPage } from "@/pages/docs/GettingStartedPage";
 import { DesignPrinciplesPage } from "@/pages/docs/DesignPrinciplesPage";
 import { HoverEscapeButtonPage } from "@/pages/docs/components/HoverEscapeButtonPage";
+import { ShrinkOnApproachButtonPage } from "@/pages/docs/components/ShrinkOnApproachButtonPage";
+import { NeverCompleteProgressPage } from "@/pages/docs/components/NeverCompleteProgressPage";
+import { ReversedTextInputPage } from "@/pages/docs/components/ReversedTextInputPage";
+import { InvertedSwipeCarouselPage } from "@/pages/docs/components/InvertedSwipeCarouselPage";
 
 export default function App() {
   return (
@@ -24,11 +28,25 @@ export default function App() {
             path="/docs/components/hover-escape-button"
             element={<HoverEscapeButtonPage />}
           />
+          <Route
+            path="/docs/components/shrink-on-approach-button"
+            element={<ShrinkOnApproachButtonPage />}
+          />
+          <Route
+            path="/docs/components/never-complete-progress"
+            element={<NeverCompleteProgressPage />}
+          />
+          <Route
+            path="/docs/components/reversed-text-input"
+            element={<ReversedTextInputPage />}
+          />
+          <Route
+            path="/docs/components/inverted-swipe-carousel"
+            element={<InvertedSwipeCarouselPage />}
+          />
 
           {/* Future component pages can be added here:
               <Route path="/docs/components/spam-click-button" element={<SpamClickButtonPage />} />
-              <Route path="/docs/components/time-picker-phone-input" element={<TimePickerPhoneInputPage />} />
-              <Route path="/docs/components/rhythm-select" element={<RhythmSelectPage />} />
           */}
 
           {/* Fallback */}

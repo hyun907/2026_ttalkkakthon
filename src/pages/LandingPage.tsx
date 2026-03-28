@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { Button } from "@/components/ui/Button";
@@ -6,6 +7,10 @@ import { Badge } from "@/components/ui/Badge";
 import { Card, CardBody } from "@/components/ui/Card";
 import { CommandChip } from "@/components/ui/CodeBlock";
 import { HoverEscapeButton } from "@/components/hostile-ui/HoverEscapeButton";
+import { ShrinkOnApproachButton } from "@/components/hostile-ui/ShrinkOnApproachButton";
+import { NeverCompleteProgress } from "@/components/hostile-ui/NeverCompleteProgress";
+import { ReversedTextInput } from "@/components/hostile-ui/ReversedTextInput";
+import { InvertedSwipeCarousel } from "@/components/hostile-ui/InvertedSwipeCarousel";
 
 // ── Component showcase cards ──────────────────────────────────────────────────
 
@@ -16,27 +21,39 @@ const SHOWCASE_COMPONENTS = [
     description:
       "A primary call-to-action button that relocates itself when the pointer approaches. Ideal for checkout flows.",
     demo: "live",
+    href: "/docs/components/hover-escape-button",
   },
   {
-    name: "SpamClickButton",
-    status: "coming-soon" as const,
+    name: "ShrinkOnApproachButton",
+    status: "stable" as const,
     description:
-      "Requires 47 clicks to register a single interaction. Throughput: excellent. Completion rate: negligible.",
-    demo: "preview",
+      "A call-to-action that interprets intent as pressure and reduces its own target area accordingly.",
+    demo: "live",
+    href: "/docs/components/shrink-on-approach-button",
   },
   {
-    name: "TimePickerPhoneInput",
-    status: "coming-soon" as const,
+    name: "NeverCompleteProgress",
+    status: "stable" as const,
     description:
-      "A date-time field implemented as a rotary dial phone interface. Mobile-friendly. Finger-unfriendly.",
-    demo: "preview",
+      "Builds confidence quickly, reaches 99%, and then preserves suspense indefinitely.",
+    demo: "live",
+    href: "/docs/components/never-complete-progress",
   },
   {
-    name: "RhythmSelect",
-    status: "coming-soon" as const,
+    name: "ReversedTextInput",
+    status: "stable" as const,
     description:
-      "Dropdown options scroll past in rhythmic sequence. Select your value at precisely the right moment.",
-    demo: "preview",
+      "Displays user input backwards while maintaining the fiction that the field is still helping.",
+    demo: "live",
+    href: "/docs/components/reversed-text-input",
+  },
+  {
+    name: "InvertedSwipeCarousel",
+    status: "stable" as const,
+    description:
+      "A swipe surface that reverses left and right because expectation is merely a suggestion.",
+    demo: "live",
+    href: "/docs/components/inverted-swipe-carousel",
   },
 ];
 
@@ -99,7 +116,7 @@ export function LandingPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
             {SHOWCASE_COMPONENTS.map((comp) => (
               <ShowcaseCard key={comp.name} comp={comp} />
             ))}
@@ -202,11 +219,9 @@ function ShowcaseCard({
   return (
     <Card className="overflow-hidden group">
       {/* Demo area */}
-      <div className="relative h-44 bg-surface border-b border-border flex items-center justify-center overflow-hidden">
+      <div className="relative h-52 bg-surface border-b border-border flex items-center justify-center overflow-hidden p-4">
         {isLive ? (
-          <div className="relative w-full h-full">
-            <HoverEscapeButton label="Submit" evadeStrength={1.2} />
-          </div>
+          <LivePreview name={comp.name} />
         ) : (
           <div className="flex flex-col items-center gap-2">
             <div className="w-10 h-5 rounded-sm bg-border animate-pulse" />
@@ -230,6 +245,11 @@ function ShowcaseCard({
             {comp.status === "stable" ? "stable" : "soon"}
           </Badge>
         </div>
+        <div className="mt-4">
+          <Button size="sm" variant="outline" asChild>
+            <Link to={comp.href}>Open Docs</Link>
+          </Button>
+        </div>
       </CardBody>
     </Card>
   );
@@ -241,6 +261,55 @@ function PhilosophyCard({ title, body }: { title: string; body: string }) {
       <div className="w-8 h-px bg-primary" />
       <h3 className="text-base font-semibold text-foreground leading-snug">{title}</h3>
       <p className="text-sm text-muted-foreground leading-relaxed">{body}</p>
+    </div>
+  );
+}
+
+function LivePreview({ name }: { name: string }) {
+  const [reversedValue, setReversedValue] = useState("backwards only");
+
+  if (name === "HoverEscapeButton") {
+    return (
+      <div className="relative w-full h-full">
+        <HoverEscapeButton label="Submit" evadeStrength={1.2} />
+      </div>
+    );
+  }
+
+  if (name === "ShrinkOnApproachButton") {
+    return (
+      <div className="relative w-full h-full">
+        <ShrinkOnApproachButton label="Continue" shrinkStrength={1.1} />
+      </div>
+    );
+  }
+
+  if (name === "NeverCompleteProgress") {
+    return (
+      <div className="w-full">
+        <NeverCompleteProgress />
+      </div>
+    );
+  }
+
+  if (name === "ReversedTextInput") {
+    return (
+      <div className="w-full">
+        <ReversedTextInput value={reversedValue} onChange={setReversedValue} />
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-full">
+      <InvertedSwipeCarousel
+        compact
+        items={[
+          "Swipe left for previous.",
+          "Swipe right for next.",
+          "Behavior remains inverted.",
+        ]}
+      />
     </div>
   );
 }

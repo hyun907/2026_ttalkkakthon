@@ -23,10 +23,19 @@ const NAV_GROUPS: NavGroup[] = [
     title: "Components",
     items: [
       { label: "Hover Escape Button", href: "/docs/components/hover-escape-button" },
-      // Future components plug in here:
-      // { label: "Spam Click Button", href: "/docs/components/spam-click-button" },
-      // { label: "Time Picker Phone Input", href: "/docs/components/time-picker-phone-input" },
-      // { label: "Rhythm Select", href: "/docs/components/rhythm-select" },
+      {
+        label: "Shrink On Approach Button",
+        href: "/docs/components/shrink-on-approach-button",
+      },
+      {
+        label: "Never Complete Progress",
+        href: "/docs/components/never-complete-progress",
+      },
+      { label: "Reversed Text Input", href: "/docs/components/reversed-text-input" },
+      {
+        label: "Inverted Swipe Carousel",
+        href: "/docs/components/inverted-swipe-carousel",
+      },
     ],
   },
 ];

@@ -31,7 +31,10 @@ export function PageShell({ children }: PageShellProps) {
               <NavLink to="/docs" active={isDocsPage}>
                 Docs
               </NavLink>
-              <NavLink to="/docs/components/hover-escape-button" active={false}>
+              <NavLink
+                to="/docs/components/hover-escape-button"
+                active={location.pathname.startsWith("/docs/components")}
+              >
                 Components
               </NavLink>
               <a
