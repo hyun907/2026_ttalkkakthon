@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { trackChaosInteraction } from "@/lib/analytics";
 
 interface SlotMachineInputProps {
   compact?: boolean;
@@ -34,6 +35,10 @@ export function SlotMachineInput({ compact = false }: SlotMachineInputProps) {
 
     setActiveIndex(index);
     setIsSpinning(true);
+    trackChaosInteraction("SlotMachineInput", "spin_start", {
+      digit_place: index === 0 ? "tens" : "ones",
+      compact_mode: compact,
+    });
     setMessage(
       index === 0
         ? "십의 자리부터 갑니다. 여기서부터 감이 없으면 끝까지 고생합니다."
@@ -63,6 +68,11 @@ export function SlotMachineInput({ compact = false }: SlotMachineInputProps) {
     const stoppedIndex = activeIndex;
     setActiveIndex(null);
     setIsSpinning(false);
+    trackChaosInteraction("SlotMachineInput", "spin_stop", {
+      digit_place: stoppedIndex === 0 ? "tens" : "ones",
+      selected_age: Number(ageLabel),
+      compact_mode: compact,
+    });
     setMessage(
       stoppedIndex === 0
         ? "좋아요. 이제 일의 자리에서도 기적을 반복해 보세요."

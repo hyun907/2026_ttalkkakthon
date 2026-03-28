@@ -6,6 +6,7 @@ import {
   type PointerEvent,
   type ButtonHTMLAttributes,
 } from "react";
+import { trackChaosInteraction } from "@/lib/analytics";
 
 interface HoverEscapeButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Text label rendered inside the button */
@@ -128,6 +129,9 @@ export function HoverEscapeButton({
     // The button is essentially never actually clickable during hover,
     // but if someone manages to click it, acknowledge their triumph.
     setClickCount((c) => c + 1);
+    trackChaosInteraction("HoverEscapeButton", "click_success", {
+      click_count: clickCount + 1,
+    });
     onClick?.(e);
   }
 

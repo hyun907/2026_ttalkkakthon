@@ -5,6 +5,7 @@ import {
   useEffect,
   type ReactNode,
 } from "react";
+import { trackChaosInteraction } from "@/lib/analytics";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -157,10 +158,66 @@ export function AccordionOfChaos({
   }, [openIds]);
 
   const pendingChaos = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const revealTimers = useRef(new Map<string, ReturnType<typeof setTimeout>>());
+  const retryCountsRef = useRef(new Map<string, number>());
+  const interactionCountRef = useRef(0);
+  const successfulRevealCountRef = useRef(0);
+  const mountedAtRef = useRef(Date.now());
+
+  const clearRevealTimer = useCallback((id: string) => {
+    const timer = revealTimers.current.get(id);
+
+    if (timer) {
+      clearTimeout(timer);
+      revealTimers.current.delete(id);
+    }
+  }, []);
+
+  const scheduleRevealSuccess = useCallback(
+    (id: string) => {
+      clearRevealTimer(id);
+
+      const timer = setTimeout(() => {
+        revealTimers.current.delete(id);
+
+        if (!openIdsRef.current.has(id)) {
+          return;
+        }
+
+        successfulRevealCountRef.current += 1;
+        trackChaosInteraction("AccordionOfChaos", "full_reveal", {
+          item_id: id,
+          reveal_duration_ms: 3000,
+          retry_count: retryCountsRef.current.get(id) ?? 1,
+        });
+      }, 3000);
+
+      revealTimers.current.set(id, timer);
+    },
+    [clearRevealTimer]
+  );
 
   const handleToggle = useCallback(
     (id: string) => {
       const isCurrentlyOpen = openIdsRef.current.has(id);
+      interactionCountRef.current += 1;
+
+      if (isCurrentlyOpen) {
+        clearRevealTimer(id);
+        trackChaosInteraction("AccordionOfChaos", "manual_close", {
+          item_id: id,
+          interaction_count: interactionCountRef.current,
+        });
+      } else {
+        const nextRetryCount = (retryCountsRef.current.get(id) ?? 0) + 1;
+        retryCountsRef.current.set(id, nextRetryCount);
+        trackChaosInteraction("AccordionOfChaos", "retry_click", {
+          item_id: id,
+          retry_count: nextRetryCount,
+          open_items_before: openIdsRef.current.size,
+        });
+        scheduleRevealSuccess(id);
+      }
 
       // ── Phase 1: Apply the user's intent immediately ──────────────────────
       setOpenIds((prev) => {
@@ -214,6 +271,13 @@ export function AccordionOfChaos({
             // Maximum frustration: close the item the user just opened.
             const next = new Set(prev);
             next.delete(id);
+            clearRevealTimer(id);
+            trackChaosInteraction("AccordionOfChaos", "chaos_close", {
+              opened_item_id: id,
+              victim_item_id: id,
+              delay_ms: delay,
+              open_items_count: prev.size,
+            });
             return next;
           }
 
@@ -221,11 +285,18 @@ export function AccordionOfChaos({
           const victim = victims[Math.floor(Math.random() * victims.length)];
           const next = new Set(prev);
           next.delete(victim);
+          clearRevealTimer(victim);
+          trackChaosInteraction("AccordionOfChaos", "chaos_close", {
+            opened_item_id: id,
+            victim_item_id: victim,
+            delay_ms: delay,
+            open_items_count: prev.size,
+          });
           return next;
         });
       }, delay);
     },
-    [chaosLevel, maxOpen]
+    [chaosLevel, clearRevealTimer, maxOpen, scheduleRevealSuccess]
     // openIdsRef is intentionally excluded — we read it via ref.
   );
 
@@ -235,6 +306,16 @@ export function AccordionOfChaos({
       if (pendingChaos.current !== null) {
         clearTimeout(pendingChaos.current);
       }
+
+      revealTimers.current.forEach((timer) => clearTimeout(timer));
+      revealTimers.current.clear();
+
+      trackChaosInteraction("AccordionOfChaos", "session_summary", {
+        interaction_count: interactionCountRef.current,
+        successful_reveals: successfulRevealCountRef.current,
+        unique_items_tried: retryCountsRef.current.size,
+        dwell_time_ms: Date.now() - mountedAtRef.current,
+      });
     };
   }, []);
 

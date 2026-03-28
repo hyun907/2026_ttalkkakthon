@@ -94,6 +94,16 @@ npm install badcn-ui
 yarn add badcn-ui
 ```
 
+## Google Analytics
+
+문서 사이트에 `GA4`를 붙이려면 프로젝트 루트에 `.env.local`을 만들고 측정 ID를 넣으면 됩니다.
+
+```bash
+VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+
+값이 있으면 라우트 이동마다 page view를 전송하고, 값이 없으면 아무 것도 로드하지 않습니다.
+
 ## 사용 방법
 
 설치 후 원하는 컴포넌트를 불러와 사용할 수 있습니다.
@@ -115,5 +125,4 @@ export default function App() {
 
 패키지는 npm에 배포되어 있으며, 누구나 설치해서 사용할 수 있습니다.
 다만, 사용자의 멘탈은 보장하지 않습니다.
-
 

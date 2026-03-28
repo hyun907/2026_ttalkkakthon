@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState, type PointerEvent } from "react";
+import { trackChaosInteraction } from "@/lib/analytics";
 
 interface TraceSubmitMazeProps {
   compact?: boolean;
@@ -98,6 +99,9 @@ export function TraceSubmitMaze({ compact = false }: TraceSubmitMazeProps) {
     );
 
     if (collided) {
+      trackChaosInteraction("TraceSubmitMaze", "collision", {
+        compact_mode: compact,
+      });
       setWarning("경고. 또 선에 닿았네요. 손이 급한 건 이해하지만 실력은 별개입니다.");
       setCursor(START_POINT);
     }
@@ -117,6 +121,10 @@ export function TraceSubmitMaze({ compact = false }: TraceSubmitMazeProps) {
     if (!insideButton) return;
 
     setSuccessCount((current) => current + 1);
+    trackChaosInteraction("TraceSubmitMaze", "success", {
+      success_count: successCount + 1,
+      compact_mode: compact,
+    });
     setWarning("제출은 인정됐습니다. 이번엔 운이 좋았네요.");
     setCursor(START_POINT);
   }

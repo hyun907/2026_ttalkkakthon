@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import { PageShell } from "@/components/layout/PageShell";
 import { LandingPage } from "@/pages/LandingPage";
 import { IntroductionPage } from "@/pages/docs/IntroductionPage";
@@ -19,10 +20,12 @@ import { TraceSubmitMazePage } from "@/pages/docs/components/TraceSubmitMazePage
 import { SlowCancelToastPage } from "@/pages/docs/components/SlowCancelToastPage";
 import { SlotMachineInputPage } from "@/pages/docs/components/SlotMachineInputPage";
 import { PatienceCheckboxPage } from "@/pages/docs/components/PatienceCheckboxPage";
+import { initAnalytics, trackPageView } from "@/lib/analytics";
 
 export default function App() {
   return (
     <BrowserRouter>
+      <AnalyticsPageTracker />
       <PageShell>
         <Routes>
           {/* Landing */}
@@ -111,4 +114,18 @@ export default function App() {
       </PageShell>
     </BrowserRouter>
   );
+}
+
+function AnalyticsPageTracker() {
+  const location = useLocation();
+
+  useEffect(() => {
+    initAnalytics();
+  }, []);
+
+  useEffect(() => {
+    trackPageView(location.pathname, location.search);
+  }, [location.pathname, location.search]);
+
+  return null;
 }

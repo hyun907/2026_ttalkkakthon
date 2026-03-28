@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
+import { trackChaosInteraction } from "@/lib/analytics";
 
 interface PatienceCheckboxProps {
   compact?: boolean;
@@ -49,6 +50,10 @@ export function PatienceCheckbox({
     if (ratio >= 1) {
       setChecked(true);
       setIsHolding(false);
+      trackChaosInteraction("PatienceCheckbox", "complete", {
+        hold_duration_ms: holdDuration,
+        compact_mode: compact,
+      });
       rafRef.current = null;
       return;
     }
