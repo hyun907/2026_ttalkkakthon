@@ -15,6 +15,7 @@ import { HoverProgressButtonPage } from "@/pages/docs/components/HoverProgressBu
 import { InfiniteConfirmDialogPage } from "@/pages/docs/components/InfiniteConfirmDialogPage";
 import { SwappingConfirmButtonsPage } from "@/pages/docs/components/SwappingConfirmButtonsPage";
 import { MarkSenseGridPage } from "@/pages/docs/components/MarkSenseGridPage";
+import { TraceSubmitMazePage } from "@/pages/docs/components/TraceSubmitMazePage";
 
 export default function App() {
   return (
@@ -79,6 +80,10 @@ export default function App() {
           <Route
             path="/docs/components/marksense-grid"
             element={<MarkSenseGridPage />}
+          />
+          <Route
+            path="/docs/components/trace-submit-maze"
+            element={<TraceSubmitMazePage />}
           />
 
           {/* Future component pages can be added here:

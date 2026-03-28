@@ -66,6 +66,10 @@ const NAV_GROUPS: NavGroup[] = [
         label: "MarkSense Grid",
         href: "/docs/components/marksense-grid",
       },
+      {
+        label: "Trace Submit Maze",
+        href: "/docs/components/trace-submit-maze",
+      },
     ],
   },
 ];

@@ -17,6 +17,7 @@ import { HoverProgressButton } from "@/components/hostile-ui/HoverProgressButton
 import { InfiniteConfirmDialog } from "@/components/hostile-ui/InfiniteConfirmDialog";
 import { SwappingConfirmButtons } from "@/components/hostile-ui/SwappingConfirmButtons";
 import { MarkSenseGrid } from "@/components/hostile-ui/MarkSenseGrid";
+import { TraceSubmitMaze } from "@/components/hostile-ui/TraceSubmitMaze";
 
 // ── Component showcase cards ──────────────────────────────────────────────────
 
@@ -107,6 +108,14 @@ const SHOWCASE_COMPONENTS = [
       "숫자 입력을 OMR 마킹 인터페이스로 대체합니다. 타이핑이 너무 관대하다고 생각하는 팀을 위해.",
     demo: "live",
     href: "/docs/components/marksense-grid",
+  },
+  {
+    name: "TraceSubmitMaze",
+    status: "stable" as const,
+    description:
+      "선에 닿지 않고 커서를 미로처럼 이동시켜야만 중앙 제출 버튼을 누를 수 있습니다.",
+    demo: "live",
+    href: "/docs/components/trace-submit-maze",
   },
 ];
 
@@ -415,6 +424,14 @@ function LivePreview({ name }: { name: string }) {
     return (
       <div className="w-full px-4 py-2">
         <MarkSenseGrid length={6} digits={[1, 2, 3, 4, 5]} />
+      </div>
+    );
+  }
+
+  if (name === "TraceSubmitMaze") {
+    return (
+      <div className="w-full px-1">
+        <TraceSubmitMaze compact />
       </div>
     );
   }
