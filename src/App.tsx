@@ -9,6 +9,7 @@ import { ShrinkOnApproachButtonPage } from "@/pages/docs/components/ShrinkOnAppr
 import { NeverCompleteProgressPage } from "@/pages/docs/components/NeverCompleteProgressPage";
 import { ReversedTextInputPage } from "@/pages/docs/components/ReversedTextInputPage";
 import { InvertedSwipeCarouselPage } from "@/pages/docs/components/InvertedSwipeCarouselPage";
+import { JudgmentalNameInputPage } from "@/pages/docs/components/JudgmentalNameInputPage";
 
 export default function App() {
   return (
@@ -39,6 +40,10 @@ export default function App() {
           <Route
             path="/docs/components/reversed-text-input"
             element={<ReversedTextInputPage />}
+          />
+          <Route
+            path="/docs/components/judgmental-name-input"
+            element={<JudgmentalNameInputPage />}
           />
           <Route
             path="/docs/components/inverted-swipe-carousel"

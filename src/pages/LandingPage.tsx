@@ -10,6 +10,7 @@ import { HoverEscapeButton } from "@/components/hostile-ui/HoverEscapeButton";
 import { ShrinkOnApproachButton } from "@/components/hostile-ui/ShrinkOnApproachButton";
 import { NeverCompleteProgress } from "@/components/hostile-ui/NeverCompleteProgress";
 import { ReversedTextInput } from "@/components/hostile-ui/ReversedTextInput";
+import { JudgmentalNameInput } from "@/components/hostile-ui/JudgmentalNameInput";
 import { InvertedSwipeCarousel } from "@/components/hostile-ui/InvertedSwipeCarousel";
 
 // ── Component showcase cards ──────────────────────────────────────────────────
@@ -45,6 +46,14 @@ const SHOWCASE_COMPONENTS = [
       "입력한 텍스트를 거꾸로 표시하면서도 여전히 도움이 되는 척합니다.",
     demo: "live",
     href: "/docs/components/reversed-text-input",
+  },
+  {
+    name: "JudgmentalNameInput",
+    status: "stable" as const,
+    description:
+      "이름을 입력하면 즉시 더 나은 이름을 요구하는 평가형 입력 필드입니다.",
+    demo: "live",
+    href: "/docs/components/judgmental-name-input",
   },
   {
     name: "InvertedSwipeCarousel",
@@ -272,6 +281,7 @@ function PhilosophyCard({ title, body }: { title: string; body: string }) {
 
 function LivePreview({ name }: { name: string }) {
   const [reversedValue, setReversedValue] = useState("거꾸로만 보입니다");
+  const [nameValue, setNameValue] = useState("");
 
   if (name === "HoverEscapeButton") {
     return (
@@ -301,6 +311,14 @@ function LivePreview({ name }: { name: string }) {
     return (
       <div className="w-full">
         <ReversedTextInput value={reversedValue} onChange={setReversedValue} />
+      </div>
+    );
+  }
+
+  if (name === "JudgmentalNameInput") {
+    return (
+      <div className="w-full">
+        <JudgmentalNameInput value={nameValue} onChange={setNameValue} />
       </div>
     );
   }

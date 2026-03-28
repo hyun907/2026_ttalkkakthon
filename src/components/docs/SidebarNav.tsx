@@ -32,6 +32,7 @@ const NAV_GROUPS: NavGroup[] = [
         href: "/docs/components/never-complete-progress",
       },
       { label: "Reversed Text Input", href: "/docs/components/reversed-text-input" },
+      { label: "Judgmental Name Input", href: "/docs/components/judgmental-name-input" },
       {
         label: "Inverted Swipe Carousel",
         href: "/docs/components/inverted-swipe-carousel",
