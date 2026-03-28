@@ -14,6 +14,8 @@ import { JudgmentalNameInput } from "@/components/hostile-ui/JudgmentalNameInput
 import { InvertedSwipeCarousel } from "@/components/hostile-ui/InvertedSwipeCarousel";
 import { AccordionOfChaos } from "@/components/hostile-ui/AccordionOfChaos";
 import { HoverProgressButton } from "@/components/hostile-ui/HoverProgressButton";
+import { InfiniteConfirmDialog } from "@/components/hostile-ui/InfiniteConfirmDialog";
+import { SwappingConfirmButtons } from "@/components/hostile-ui/SwappingConfirmButtons";
 
 // ── Component showcase cards ──────────────────────────────────────────────────
 
@@ -80,6 +82,22 @@ const SHOWCASE_COMPONENTS = [
       "클릭하기 전에 의도를 증명해야 합니다. 충분히 오래 호버하세요.",
     demo: "live",
     href: "/docs/components/hover-progress-button",
+  },
+  {
+    name: "InfiniteConfirmDialog",
+    status: "stable" as const,
+    description:
+      "강도가 올라가는 재확인 멘트를 거쳐도 제출은 끝나지 않고 다시 처음부터 반복됩니다.",
+    demo: "live",
+    href: "/docs/components/infinite-confirm-dialog",
+  },
+  {
+    name: "SwappingConfirmButtons",
+    status: "stable" as const,
+    description:
+      "확인과 취소 버튼의 위치가 매번 뒤바뀌어 자동 반응을 체계적으로 배신합니다.",
+    demo: "live",
+    href: "/docs/components/swapping-confirm-buttons",
   },
 ];
 
@@ -364,6 +382,22 @@ function LivePreview({ name }: { name: string }) {
         <HoverProgressButton variant="circle" holdDuration={1800}>
           확인
         </HoverProgressButton>
+      </div>
+    );
+  }
+
+  if (name === "InfiniteConfirmDialog") {
+    return (
+      <div className="w-full px-1">
+        <InfiniteConfirmDialog compact />
+      </div>
+    );
+  }
+
+  if (name === "SwappingConfirmButtons") {
+    return (
+      <div className="w-full px-1">
+        <SwappingConfirmButtons compact autoSwapMs={1400} />
       </div>
     );
   }

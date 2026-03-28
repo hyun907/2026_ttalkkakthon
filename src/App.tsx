@@ -12,6 +12,8 @@ import { InvertedSwipeCarouselPage } from "@/pages/docs/components/InvertedSwipe
 import { JudgmentalNameInputPage } from "@/pages/docs/components/JudgmentalNameInputPage";
 import { AccordionOfChaosPage } from "@/pages/docs/components/AccordionOfChaosPage";
 import { HoverProgressButtonPage } from "@/pages/docs/components/HoverProgressButtonPage";
+import { InfiniteConfirmDialogPage } from "@/pages/docs/components/InfiniteConfirmDialogPage";
+import { SwappingConfirmButtonsPage } from "@/pages/docs/components/SwappingConfirmButtonsPage";
 
 export default function App() {
   return (
@@ -64,6 +66,14 @@ export default function App() {
           <Route
             path="/docs/components/hover-progress-button"
             element={<HoverProgressButtonPage />}
+          />
+          <Route
+            path="/docs/components/infinite-confirm-dialog"
+            element={<InfiniteConfirmDialogPage />}
+          />
+          <Route
+            path="/docs/components/swapping-confirm-buttons"
+            element={<SwappingConfirmButtonsPage />}
           />
 
           {/* Future component pages can be added here:

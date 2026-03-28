@@ -45,6 +45,14 @@ const NAV_GROUPS: NavGroup[] = [
         label: "Hover Progress Button",
         href: "/docs/components/hover-progress-button",
       },
+      {
+        label: "Infinite Confirm Dialog",
+        href: "/docs/components/infinite-confirm-dialog",
+      },
+      {
+        label: "Swapping Confirm Buttons",
+        href: "/docs/components/swapping-confirm-buttons",
+      },
     ],
   },
 ];
